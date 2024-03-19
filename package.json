@@ -1,0 +1,21 @@
+{
+  "name": "nact-greeter",
+  "version": "1.0.0",
+  "description": "slight rework of the nact addressbook demo from https://nact.xyz/en_uk/lesson/javascript/querying",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nact",
+    "actor",
+    "greeter",
+    "node"
+  ],
+  "author": "Tjerk Valentijn",
+  "license": "ISC",
+  "dependencies": {
+    "nact": "7.6.2",
+    "uuid": "9.0.1"
+  }
+}
