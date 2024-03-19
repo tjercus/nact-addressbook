@@ -39,11 +39,12 @@ const contactsService = spawn(
       const nextState = {
         contacts: { ...state.contacts, [newContact.id]: newContact },
       };
-      dispatch(msg.sender, {
-        type: ContactProtocolTypes.SUCCESS,
-        // sender: ctx.self,
-        payload: newContact,
-      });
+      // disabled response since that can cause cicular discomfort
+      // dispatch(msg.sender, {
+      //   type: ContactProtocolTypes.SUCCESS,
+      //   sender: "", //ctx.self,
+      //   payload: newContact,
+      // });
       return nextState;
     } else {
       // All these message types require an existing contact
@@ -107,10 +108,12 @@ const createContact = async () => {
   };
   // note that the standalone 'dispatch' comes from function.js and has three
   //   params while the internal dispatch on an actor has two and so do the TS typings!
+  console.log("creating a new contact via the actor system");
   dispatch(contactsService, msg);
 };
 
-createContact().then(console.log);
+// no response expected
+createContact();
 
 const msg = {
   sender: contactsService,
